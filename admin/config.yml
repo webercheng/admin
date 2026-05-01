@@ -1,0 +1,25 @@
+# 后端配置
+backend:
+  name: github                         # 指定使用 GitHub 作为后端
+  repo: {你的GitHub用户名}/{你的仓库}   # 改为你的仓库名，比如 'JohnDoe/my-page'
+  branch: main                        # 指定的分支，一般就是 main 或 master
+  base_url: https://my-auth.cwb1991.workers.dev # ⚠️ 先占位，下一步会生成并确认
+
+# 媒体文件（如图片）的存放路径
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+# 内容集合配置（这里配置哪些文件需要编辑）
+collections:
+  - name: "about"                     # 集合的内部名称，建议英文
+    label: "About Page"              # 在后台显示的名称
+    label_singular: "About Page"
+    folder: "personal-website-code/_data/" # ⚠️ 这里需要改为你存放首页数据的实际路径
+    editor:
+      preview: false
+    create: false                    # 固定页面，无需创建新文件
+    fields:                          # 定义可以编辑的字段
+      - { name: name_en, label: "Name (English)", widget: "string" }
+      - { name: name_zh, label: "Name (Chinese)", widget: "string" }
+      - { name: tagline_en, label: "Tagline (English)", widget: "text" }
+      - { name: tagline_zh, label: "Tagline (Chinese)", widget: "text" }
